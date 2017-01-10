@@ -27,9 +27,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin', '~> 1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rails_12factor', group: :production
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+group :production do 
+  gem 'pg', '~> 0.18.4'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,7 +47,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
