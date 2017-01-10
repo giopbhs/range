@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Range start:</strong>
+  <%= @gallery.range_start %>
+</p>
+
+<p>
+  <strong>Range end:</strong>
+  <%= @gallery.range_end %>
+</p>
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>

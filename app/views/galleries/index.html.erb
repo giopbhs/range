@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Galleries</h1>
+
+    <% @galleries.each do |gallery| %>
+    <div class="well" style="background-color: #303030;
+    padding: 15px;
+    margin: 70px auto;
+    color: #11d5e6;">
+      <% output = [] %>
+  <% for i in gallery.range_start..gallery.range_end %>
+  <% output << i  %>
+  <% end %>
+  
+  <% string = "" %>
+  <% output.each do |i| %>
+  <%   string = string + i.to_s + "," %>
+ <%  end %>
+<% i = string.length - 1  %>
+  
+  <% if string[i] == "," %>
+  <%   string[i] = " " %>
+ <%  end %>
+ <%=  final = "[gallery ids='#{string}' type='slider' height='600']" %>
+  <p> <br/></p>
+ <%=  p  "Your range is: #{string}" %>
+ <p> <br/></p>
+ <%=  p "Shortcode is " + final %>
+    
+        <p style="color: #1dce35;"><%= link_to 'Show', gallery %></p>
+        <p style="color: #1dce35;"><%= link_to 'Edit', edit_gallery_path(gallery) %></p>
+        <p style="color: #1dce35;"><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+</div>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Gallery', new_gallery_path %>
